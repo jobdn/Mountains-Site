@@ -1,0 +1,55 @@
+@import "utilites";
+
+.showcase {
+    height: 100vh;
+    padding: 100px 0 90px;
+    background: url(../images/showcase-bg.jpg) center/cover no-repeat;
+    color: aliceblue;
+    // position: fixed;
+    // .showcase__content
+    &__content {
+        @include flexbox(column, space-between, center);
+        text-align: center;
+    }
+    // .showcase__logo
+    &__logo {
+        margin-bottom: 80px;
+    }
+    // .showcase__text
+    &__text {
+        margin-bottom: 90px;
+    }
+    // .showcase__title
+    &__title {
+        font-size: 2rem;
+    }
+    // .showcase__subtitle
+    &__subtitle {
+        font-size: 1.5rem;
+    }
+    // .showcase__footer
+    &__footer {
+        
+    }
+    // .showcase__btn
+    &__btn {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    // .showcase__arrow
+    &__arrow {
+
+    }
+}
+.container {
+}
+.fas {
+}
+.fa-boxes {
+}
+.fa-3x {
+}
+.btn {
+}
+.fa-sort-down {
+}
