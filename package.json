@@ -1,0 +1,24 @@
+{
+  "name": "paralax",
+  "version": "1.0.0",
+  "description": "This project will has palarax effect",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanilaPeace/Paralax.git"
+  },
+  "keywords": [
+    "js",
+    "paralax",
+    "webpack"
+  ],
+  "author": "Danila <lo0rd1@bk.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanilaPeace/Paralax/issues"
+  },
+  "homepage": "https://github.com/DanilaPeace/Paralax#readme"
+}
