@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Box</title>
 </head>
+
 <body>
-    <section class="showcase">
+    <!-- SHOWCASE -->
+    <section id="showcase" class="showcase">
         <div class="container">
             <div class="showcase__content">
                 <div class="showcase__body">
@@ -19,7 +22,7 @@
                     </h1>
                 </div>
                 <div class="showcase__footer">
-                    <div class="showcase__btn btn">Read More</div>
+                    <a href="#about" class="showcase__btn btn">Read More</a>
                     <div class="showcase__arrow">
                         <i class="fas fa-sort-down fa-3x"></i>
                     </div>
@@ -27,18 +30,77 @@
             </div>
         </div>
     </section>
-
-    <seciton menu>
+    <!-- MENU -->
+    <section class="menu">
         <div class="container">
             <nav class="nav">
                 <ul class="nav__list">
-                    <li><a href="#" class="nav__link">Home</a></li>
-                    <li><a href="#" class="nav__link">About</a></li>
-                    <li><a href="#" class="nav__link">About</a></li>
-                    <li><a href="#" class="nav__link">About</a></li>
+                    <li class="nav__link">
+                        <a href="#showcase">Home</a>
+                        <div class="slider slider_active"></div>
+                    </li>
+                    <li class="nav__link">
+                        <a href="#about">About Us</a>
+                        <div class="slider"></div>
+                    </li>
+                    <li class="nav__link">
+                        <a href="#portfolio">Portfolio</a>
+                        <div class="slider"></div>
+                    </li>
+                    <li class="nav__link">
+                        <a href="#contact">Contact</a>
+                        <div class="slider"></div>
+                    </li>
                 </ul>
             </nav>
         </div>
-    </seciton>
+    </section>
+    <!-- ABOUT -->
+    <section class="about">
+        <div class="container">
+            <div class="heading-block">
+                <div class="heading-block__title">
+                    About
+                </div>
+            </div>
+            <div class="about__subtitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit nulla nemo animi, consectetur
+                voluptate exercitationem inventore, consequatur tempore, repudiandae temporibus ratione quod non
+                veritatis
+                nobis officia autem incidunt. Suscipit.
+            </div>
+            <div class="about__row">
+                <div class="about__col">
+                    <div class="card">
+                        <div class="card__img">
+                            <i class="fas fa-search-location fa-3x"></i>
+                        </div>
+                        <div class="card__title">Caution</div>
+                        <div class="card__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates facere aspernatur et molestias excepturi temporibus dolores animi natus, quisquam fuga!</div>
+                    </div>
+                </div>
+                <div class="about__col">
+                    <div class="card">
+                        <div class="card__img">
+                            <i class="far fa-lightbulb fa-3x"></i>
+                        </div>
+                        <div class="card__title">Lightness</div>
+                        <div class="card__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad perspiciatis molestiae voluptatem. Excepturi ducimus laborum, explicabo illum eum obcaecati? Reiciendis.</div>
+                    </div>
+                </div>
+                <div class="about__col">
+                    <div class="card">
+                        <div class="card__img">
+                            <i class="fas fa-shield-alt fa-3x"></i>
+                        </div>
+                        <div class="card__title">Security</div>
+                        <div class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam cupiditate eveniet iste sapiente asperiores dolore velit ipsam pariatur exercitationem reiciendis?</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 </body>
+
 </html>
