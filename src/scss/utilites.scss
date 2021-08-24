@@ -1,4 +1,4 @@
-@mixin  flexbox($direction: "row", $justify: "flex-start", $align: "stretch") {
+@mixin flexbox($direction: "row", $justify: "flex-start", $align: "stretch") {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
@@ -12,6 +12,7 @@
     padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
+
     &:hover {
         transform: scale(.98);
     }
@@ -22,7 +23,20 @@
     0% {
         top: 0;
     }
+
     100% {
         top: 20px;
     }
+}
+
+// UNDERLINE FOR TITLES
+@mixin line($width) {
+    content: "";
+    height: 3px;
+    width: $width+px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin: 0 0 0 -55px;
 }
