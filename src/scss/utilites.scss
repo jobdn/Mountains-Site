@@ -8,11 +8,21 @@
 
 //BOTTONS
 .btn {
-    border: 2px solid #fff;
+    border: 2px solid rgb(0, 0, 0);
     padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
     &:hover {
         transform: scale(.98);
+    }
+}
+
+// ANIMATION
+@keyframes bounce {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 20px;
     }
 }
