@@ -1,0 +1,57 @@
+{
+  "name": "paralax",
+  "version": "1.0.0",
+  "description": "This project will has palarax effect",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "watch": " cross-env NODE_ENV=development webpack --mode development --watch",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanilaPeace/Paralax.git"
+  },
+  "keywords": [
+    "js",
+    "paralax",
+    "webpack"
+  ],
+  "author": "Danila <lo0rd1@bk.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanilaPeace/Paralax/issues"
+  },
+  "homepage": "https://github.com/DanilaPeace/Paralax#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "autoprefixer": "^10.3.2",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.2.0",
+    "node-sass": "^6.0.1",
+    "postcss-loader": "^6.1.1",
+    "postcss-nested": "^5.0.6",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
+  },
+  "dependencies": {
+    "normalize-css": "^2.3.1",
+    "normalize-scss": "^7.0.1"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ]
+}

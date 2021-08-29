@@ -1,0 +1,83 @@
+@mixin flexbox($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    height: 100%;
+}
+
+//BOTTONS
+.btn {
+    border: 2px solid rgb(0, 0, 0);
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+// ANIMATION
+@keyframes bounce {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 20px;
+    }
+}
+
+// UNDERLINE FOR TITLES OR LINKS
+@mixin line() {
+    content: "";
+    height: 3px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+}
+
+//UNDERLINED TITLE
+.heading-block {
+    // .heading-block__title
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    &__title {
+        position: relative;
+        padding-bottom: 30px;
+        &::after{
+            @include line();
+            width: 100px;
+            left: 50%;
+            margin: 0 0 0 -50px;
+        }
+    }
+}
+
+// CARD
+.card {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .5);
+    width: 220px;
+    border-radius: 10px;
+    @include flexbox(column, center, center);
+    margin: 0 auto;
+    padding: 20px 20px 15px;
+    transition: all .3s ease;
+    &__img {
+        color: #4e4e4e;
+    }
+    // .card__title
+    &__title {
+        text-transform: uppercase;
+        margin: 20px 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #4e4e4e;
+    }
+    // .card__text
+    &__text {
+        line-height: 1.4;
+        color: #5e5e5e;
+    }
+    &:hover{
+        transform: translate(0, -10px);
+    }
+}
