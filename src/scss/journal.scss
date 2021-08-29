@@ -1,0 +1,27 @@
+.journal {
+    // .journal__content
+    &__content {}
+    // .journal__row
+    &__row {}
+}
+
+.journal-item {
+    // .journal-item_img-1
+    &_img-1 {}
+    // .journal-item_text
+    &_text {}
+    // .journal-item_img-2
+    &_img-2 {}
+    // .journal-item_img-3
+    &_img-3 {}
+    // .journal-item__icon
+    &__icon {}
+    // .journal-item__description
+    &__description {}
+    // .journal-item__title
+    &__title {}
+    // .journal-item__text
+    &__text {}
+    // .journal-item__number
+    &__number {}
+}

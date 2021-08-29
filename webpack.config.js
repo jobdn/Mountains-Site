@@ -4,6 +4,7 @@ const {
 } = require('clean-webpack-plugin');
 const MiniCss = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -47,13 +48,24 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/,
                 use: styleLoaders(["sass-loader", "postcss-loader"]),
-            }
+            },
+            // //loading images
+            // {
+            //     test: /\.(png|jpg|gif|jpeg)$/,
+            //     use: [{
+            //         loader: 'file-loader',
+            //         options: {
+            //             // name: 'images/[name].[ext]',
+            //             name: 'images/[name]/[name].[ext]',
+            //         }
+            //     }]
+            // }
         ]
     },
     devtool: 'inline-source-map',
-    devServer : {
+    devServer: {
         port: 4200,
-        hot: isDev, 
+        hot: isDev,
     },
     optimization: {
         splitChunks: {
@@ -61,7 +73,7 @@ module.exports = {
         }
     },
     plugins: [
-        new CleanWebpackPlugin({}),
+        new CleanWebpackPlugin({ }),
         new HtmlWebpackPlugin({
             template: 'html/index.html',
             filename: filename('html'),
@@ -69,6 +81,14 @@ module.exports = {
         }),
         new MiniCss({
             filename: 'css/' + filename('css'),
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: './images',
+                    to: './images'
+                }
+            ]
         })
     ]
 }
