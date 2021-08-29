@@ -2,18 +2,26 @@
     // .journal__content
     &__content {}
     // .journal__row
-    &__row {}
+    &__row {
+        display: flex;
+    }
 }
 
 .journal-item {
     // .journal-item_img-1
-    &_img-1 {}
+    &_img-1 {
+        background: url(../images/journal/1.png) center/cover no-repeat;
+    }
     // .journal-item_text
     &_text {}
     // .journal-item_img-2
-    &_img-2 {}
+    &_img-2 {
+        background: url(../images/journal/2.png) center/cover no-repeat;
+    }
     // .journal-item_img-3
-    &_img-3 {}
+    &_img-3 {
+        background: url(../images/journal/3.png) center/cover no-repeat;
+    }
     // .journal-item__icon
     &__icon {}
     // .journal-item__description
