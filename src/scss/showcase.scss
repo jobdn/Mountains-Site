@@ -3,7 +3,7 @@
 .showcase {
     height: 100vh;
     padding: 50px 0 90px;
-    background: url(../images/showcase-bg.jpg) center/cover no-repeat;
+    background: url(../images/showcase/showcase-bg.jpg) center/cover no-repeat;
     // .showcase__content
     &__content {
         @include flexbox(column, space-between, center);
