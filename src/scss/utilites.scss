@@ -81,3 +81,27 @@
         transform: translate(0, -10px);
     }
 }
+
+//ARROW
+.arrow {
+    &::after {
+        content: '';
+        position: absolute;
+        border: 10px solid transparent;
+    }
+    &_left-top {
+        top: 50px;
+        left: 0;
+        border-left: 10px solid #fff;
+    }
+    &_left-bottom {
+        left: 50px;
+        bottom: 0;
+        border-bottom: 10px solid #fff
+    }
+    &right-top {
+        top: 50px;
+        right: 0;
+        border-right: 10px solid #fff;
+    }
+}

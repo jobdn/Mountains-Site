@@ -49,17 +49,17 @@ module.exports = {
                 test: /\.s[ac]ss$/,
                 use: styleLoaders(["sass-loader", "postcss-loader"]),
             },
-            // //loading images
-            // {
-            //     test: /\.(png|jpg|gif|jpeg)$/,
-            //     use: [{
-            //         loader: 'file-loader',
-            //         options: {
-            //             // name: 'images/[name].[ext]',
-            //             name: 'images/[name]/[name].[ext]',
-            //         }
-            //     }]
-            // }
+            {
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options : {
+                            name: 'images/[name].[ext]'
+                        }
+                    },
+                ],
+            }
         ]
     },
     devtool: 'inline-source-map',
@@ -73,7 +73,7 @@ module.exports = {
         }
     },
     plugins: [
-        new CleanWebpackPlugin({ }),
+        new CleanWebpackPlugin({}),
         new HtmlWebpackPlugin({
             template: 'html/index.html',
             filename: filename('html'),
@@ -83,11 +83,8 @@ module.exports = {
             filename: 'css/' + filename('css'),
         }),
         new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: './images',
-                    to: './images'
-                }
+            patterns : [
+                {from: 'images', to: 'images'}
             ]
         })
     ]

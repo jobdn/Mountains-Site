@@ -1,29 +1,90 @@
 @import "utilites";
 
 .journal {
+    padding: 90px 0;
     // .journal__content
     &__content {
+        box-shadow: 0 3px 21px rgba(0, 0, 0, .13);
+        margin-top: 70px;
         // .journal__content_grid
-        &_grid {}
+        &_grid {
+            display: grid;
+            justify-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 380px);
+            grid-template-areas:
+                "first first theerd"
+                "second second theerd";
+        }
     }
 }
 
 .journal-post {
+    display: grid;
+    &:nth-child(1) {
+        grid-area: first;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &:nth-child(2) {
+        grid-area: second;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &:nth-child(3) {
+        grid-area: theerd;
+        grid-template-rows: repeat(2, 1fr);
+    }
     // .journal-post__img
-    &__img {}
+    &__img {
+        position: relative;
+        @include flexbox(row, center, center);
+        &::after {
+            content: "";
+            position: absolute;
+            border: 10px solid transparent;
+        }
+        &:nth-of-type(1)::after {
+            top: 50px;
+            right: 0;
+            border-right: 10px solid #fff;
+        }
+        &:nth-of-type(2)::after {
+            top: 50px;
+            left: 0;
+            border-left: 10px solid #fff;
+        }
+        &:nth-of-type(3):after {
+            left: 50px;
+            bottom: 0;
+            border-bottom: 10px solid #fff;
+        }
+    }
     // .journal-post__content
-    &__content {}
+    &__content {
+        @include flexbox(column, space-between, center);
+        padding: 50px;
+        text-align: center;
+    }
     // .journal-post__description
-    &__description {}
+    &__description {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
     // .journal-post__title
-    &__title {}
+    &__title {
+        text-transform: uppercase;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
     // .journal-post__text
-    &__text {}
+    &__text {
+    }
     // .journal-post__number
-    &__number {}
+    &__number {
+    }
 }
 .journal-item {
     // .journal-item__icon
-    &__icon {}
+    &__icon {
+    }
 }
-
