@@ -82,26 +82,27 @@
     }
 }
 
-//ARROW
-.arrow {
+// POINTS ARROW
+.point {
+    position: relative;
     &::after {
-        content: '';
+        content: "";
         position: absolute;
         border: 10px solid transparent;
     }
-    &_left-top {
+    &_right-top:after {
+        top: 50px;
+        right: 0;
+        border-right: 10px solid #fff;
+    }
+    &_left-top::after {
         top: 50px;
         left: 0;
         border-left: 10px solid #fff;
     }
-    &_left-bottom {
+    &_left-bottom:after {
         left: 50px;
         bottom: 0;
-        border-bottom: 10px solid #fff
-    }
-    &right-top {
-        top: 50px;
-        right: 0;
-        border-right: 10px solid #fff;
+        border-bottom: 10px solid #fff;
     }
 }

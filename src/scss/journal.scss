@@ -32,31 +32,13 @@
     &:nth-child(3) {
         grid-area: theerd;
         grid-template-rows: repeat(2, 1fr);
+        &__img {
+            
+        }
     }
     // .journal-post__img
     &__img {
-        position: relative;
         @include flexbox(row, center, center);
-        &::after {
-            content: "";
-            position: absolute;
-            border: 10px solid transparent;
-        }
-        &:nth-of-type(1)::after {
-            top: 50px;
-            right: 0;
-            border-right: 10px solid #fff;
-        }
-        &:nth-of-type(2)::after {
-            top: 50px;
-            left: 0;
-            border-left: 10px solid #fff;
-        }
-        &:nth-of-type(3):after {
-            left: 50px;
-            bottom: 0;
-            border-bottom: 10px solid #fff;
-        }
     }
     // .journal-post__content
     &__content {
@@ -68,19 +50,26 @@
     &__description {
         text-transform: uppercase;
         font-weight: bold;
+        color: #16b5ef;
+        font-size: 16px;
     }
     // .journal-post__title
     &__title {
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight:  bold;
         line-height: 1.5;
         letter-spacing: 1.5px;
+        font-size: 18px;
     }
     // .journal-post__text
     &__text {
+        color: #808080;
+        line-height: 1.4;
     }
     // .journal-post__number
     &__number {
+        font-family: 'Times New Roman', sans-serif;
+        font-style: italic;
     }
 }
 .journal-item {
