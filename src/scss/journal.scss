@@ -4,7 +4,7 @@
     padding: 90px 0;
     // .journal__content
     &__content {
-        box-shadow: 0 3px 21px rgba(0, 0, 0, .13);
+        box-shadow: 0 3px 21px rgba(0, 0, 0, 0.13);
         margin-top: 70px;
         // .journal__content_grid
         &_grid {
@@ -32,9 +32,6 @@
     &:nth-child(3) {
         grid-area: theerd;
         grid-template-rows: repeat(2, 1fr);
-        &__img {
-            
-        }
     }
     // .journal-post__img
     &__img {
@@ -56,7 +53,7 @@
     // .journal-post__title
     &__title {
         text-transform: uppercase;
-        font-weight:  bold;
+        font-weight: bold;
         line-height: 1.5;
         letter-spacing: 1.5px;
         font-size: 18px;
@@ -68,7 +65,7 @@
     }
     // .journal-post__number
     &__number {
-        font-family: 'Times New Roman', sans-serif;
+        font-family: "Times New Roman", sans-serif;
         font-style: italic;
     }
 }
