@@ -1,76 +1,83 @@
 @import "utilites";
+@import "slider";
 
 .journal {
     padding: 90px 0;
+
     // .journal__content
     &__content {
         box-shadow: 0 3px 21px rgba(0, 0, 0, 0.13);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 380px);
+        grid-template-areas:
+            "first first theerd"
+            "second second theerd";
+    }
+
+    // .journal__slider
+    &__slider {
         margin-top: 70px;
-        // .journal__content_grid
-        &_grid {
-            display: grid;
-            justify-items: center;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 380px);
-            grid-template-areas:
-                "first first theerd"
-                "second second theerd";
-        }
     }
 }
 
-.journal-post {
-    display: grid;
+.journal-item {
+    display: grid; 
     &:nth-child(1) {
         grid-area: first;
         grid-template-columns: repeat(2, 1fr);
     }
+
     &:nth-child(2) {
         grid-area: second;
         grid-template-columns: repeat(2, 1fr);
     }
+
     &:nth-child(3) {
         grid-area: theerd;
         grid-template-rows: repeat(2, 1fr);
     }
-    // .journal-post__img
+
+    // .journal-item__img
     &__img {
-        @include flexbox(row, center, center);
+        @include flexbox(column, center, center);
     }
-    // .journal-post__content
+
+    // .journal-item__content
     &__content {
         @include flexbox(column, space-between, center);
-        padding: 50px;
+        padding: 30px 20px;
         text-align: center;
     }
-    // .journal-post__description
+
+    // .journal-item__description
     &__description {
         text-transform: uppercase;
         font-weight: bold;
         color: #16b5ef;
         font-size: 16px;
+        margin: 20px 0;
     }
-    // .journal-post__title
+
+    // .journal-item__title
     &__title {
         text-transform: uppercase;
         font-weight: bold;
         line-height: 1.5;
         letter-spacing: 1.5px;
         font-size: 18px;
+        margin: 20px 0;
     }
-    // .journal-post__text
+
+    // .journal-item__text
     &__text {
         color: #808080;
         line-height: 1.4;
     }
-    // .journal-post__number
+
+    // .journal-item__number
     &__number {
         font-family: "Times New Roman", sans-serif;
         font-style: italic;
-    }
-}
-.journal-item {
-    // .journal-item__icon
-    &__icon {
     }
 }
