@@ -1,9 +1,10 @@
 @import "utilites";
-@import "slider";
 
 .journal {
     padding: 90px 0;
-
+    @media screen and (max-width: $mdq3+px) {
+        padding: 30px 0;
+    }
     // .journal__content
     &__content {
         display: grid;
@@ -16,8 +17,23 @@
         box-shadow: 0 3px 21px rgba(0, 0, 0, 0.13);
         margin-top: 70px;
 
-        @media screen and (max-width: $mdq2+px){
+        @media screen and (max-width: $mdq2+px) {
             display: none;
+        }
+    }
+    // .journal__clider
+    &__slider {
+        margin-top: 40px;
+        height: 380px;
+        @media screen and (min-width: $mdq2+1+px) {
+            display: none;
+        }
+        @media screen and (max-width: $mdq3+px) {
+            max-width: 380px;
+            height: auto;
+        }
+        @media screen and (max-width: $mdq4+px) {
+            max-width: 280px;
         }
     }
 }
@@ -36,11 +52,23 @@
     &[data-item="3"] {
         grid-area: theerd;
         grid-template-rows: repeat(2, 1fr);
+        @media screen and (max-width: $mdq2+1+px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &[data-item="1"],
     &[data-item="2"] {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    &[data-item="1"],
+    &[data-item="2"],
+    &[data-item="3"] {
+        @media screen and (max-width: $mdq3+px) {
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: 1fr;
+        }
     }
 
     // .journal-item__img
@@ -53,6 +81,15 @@
         @include flexbox(column, space-between, center);
         padding: 30px 20px;
         text-align: center;
+        @media screen and (max-width: $mdq2+px) {
+            border: 3px solid rgba($color: #000000, $alpha: 0.08);
+        }
+        @media screen and (max-width: $mdq3+px) {
+            height: 300px;
+        }
+        @media screen and (max-width: $mdq4+px) {
+            height: 210px;
+        }
     }
 
     // .journal-item__description
@@ -62,6 +99,10 @@
         color: #16b5ef;
         font-size: 16px;
         margin: 20px 0;
+        @media screen and (max-width: $mdq3+px) {
+            font-size: 14px;
+            margin: 7px 0;
+        }
     }
 
     // .journal-item__title
@@ -72,12 +113,22 @@
         letter-spacing: 1.5px;
         font-size: 18px;
         margin: 20px 0;
+        @media screen and (max-width: $mdq4+px) {
+            font-size: 12px;
+            margin: 5px 0;
+            line-height: 1.2;
+            letter-spacing: 0;
+        }
     }
 
     // .journal-item__text
     &__text {
         color: #808080;
         line-height: 1.4;
+        @media screen and (max-width: $mdq4+px) {
+            font-size: 11px;
+            line-height: 1.4;
+        }
     }
 
     // .journal-item__number
