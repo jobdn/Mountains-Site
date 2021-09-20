@@ -108,6 +108,7 @@
     margin-right: 3px;
     margin-left: 3px;
     background-color: rgba(255, 255, 255, 0.5);
+    /* WHAT IS IT? */
     background-clip: padding-box;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
@@ -115,5 +116,5 @@
   }
   
   .slider__indicator_active {
-    background-color: #000;
+    background-color: #eee;
   }

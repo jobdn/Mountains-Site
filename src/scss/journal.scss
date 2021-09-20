@@ -15,7 +15,7 @@
             "second second theerd";
 
         box-shadow: 0 3px 21px rgba(0, 0, 0, 0.13);
-        margin-top: 70px;
+        margin-top: 50px;
 
         @media screen and (max-width: $mdq2+px) {
             display: none;
@@ -41,30 +41,31 @@
 .journal-item {
     display: grid;
 
-    &[data-item="1"] {
+    &[data-item="item__one"] {
         grid-area: first;
     }
 
-    &[data-item="2"] {
+    &[data-item="item__two"] {
         grid-area: second;
     }
 
-    &[data-item="3"] {
+    &[data-item="item__three"] {
         grid-area: theerd;
         grid-template-rows: repeat(2, 1fr);
         @media screen and (max-width: $mdq2+1+px) {
+            grid-template-rows: 1fr;
             grid-template-columns: repeat(2, 1fr);
         }
     }
 
-    &[data-item="1"],
-    &[data-item="2"] {
+    &[data-item="item__one"],
+    &[data-item="item__two"] {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    &[data-item="1"],
-    &[data-item="2"],
-    &[data-item="3"] {
+    &[data-item="item__one"],
+    &[data-item="item__two"],
+    &[data-item="item__three"] {
         @media screen and (max-width: $mdq3+px) {
             grid-template-rows: repeat(2, 1fr);
             grid-template-columns: 1fr;
@@ -74,18 +75,50 @@
     // .journal-item__img
     &__img {
         @include flexbox(column, center, center);
+        position: relative;
+        &[data-img-item="item-img__one"],
+        &[data-img-item="item-img__two"],
+        &[data-img-item="item-img__three"] {
+            &::after {
+                content: "";
+                position: absolute;
+                border: 10px solid transparent;
+            }
+        }
+
+        &[data-img-item="item-img__one"] {
+            &::after {
+                border-right: 10px solid #fff;
+                top: 50px;
+                right: 0;
+            }
+        }
+        &[data-img-item="item-img__two"] {
+            &::after {
+                border-left: 10px solid #fff;
+                top: 80px;
+                left: 0;
+            }
+        }
+        &[data-img-item="item-img__three"] {
+            &::after {
+                border-bottom: 10px solid #fff;
+                bottom: 0;
+                left: 50px;
+            }
+        }
     }
 
     // .journal-item__content
     &__content {
         @include flexbox(column, space-between, center);
-        padding: 30px 20px;
+        padding: 30px 20px 10px;
         text-align: center;
         @media screen and (max-width: $mdq2+px) {
-            border: 3px solid rgba($color: #000000, $alpha: 0.08);
+            border: 3px solid #eee;
         }
         @media screen and (max-width: $mdq3+px) {
-            height: 300px;
+            height: 310px;
         }
         @media screen and (max-width: $mdq4+px) {
             height: 210px;
@@ -133,6 +166,7 @@
 
     // .journal-item__number
     &__number {
+        margin-top: 10px;
         font-family: "Times New Roman", sans-serif;
         font-style: italic;
     }
