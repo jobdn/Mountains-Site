@@ -7,7 +7,6 @@ $mdq2: 992;
 $mdq3: 768;
 $mdq4: 546;
 
-
 .container {
     max-width: $mw + px;
     margin: 0 auto;
@@ -34,4 +33,4 @@ $mdq4: 546;
 @import "menu";
 @import 'about';
 @import 'journal';
-
+@import '../css/simpleSlider.css';
