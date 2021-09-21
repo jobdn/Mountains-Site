@@ -66,6 +66,9 @@
     &[data-item="item__one"],
     &[data-item="item__two"],
     &[data-item="item__three"] {
+        @media screen and (max-width: $mdq2+px) {
+            grid-template-rows: 320px;
+        }
         @media screen and (max-width: $mdq3+px) {
             grid-template-rows: repeat(2, 310px);
             grid-template-columns: 310px;
@@ -118,6 +121,7 @@
         @include flexbox(column, space-between, center);
         padding: 30px 20px 10px;
         text-align: center;
+
         @media screen and (max-width: $mdq2+px) {
             border: 3px solid #eee;
         }
@@ -170,5 +174,8 @@
         margin-top: 10px;
         font-family: "Times New Roman", sans-serif;
         font-style: italic;
+        @media screen and (max-width: $mdq4+px) {
+            font-size: 13px;
+        }
     }
 }
