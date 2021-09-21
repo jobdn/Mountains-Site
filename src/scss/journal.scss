@@ -21,10 +21,10 @@
             display: none;
         }
     }
-    // .journal__clider
+    // .journal__slider
     &__slider {
         margin-top: 40px;
-        
+
         @media screen and (min-width: $mdq2+1+px) {
             display: none;
         }
@@ -34,6 +34,9 @@
         }
         @media screen and (max-width: $mdq4+px) {
             max-width: 210px;
+        }
+        .slider__indicators {
+            display: none;
         }
     }
 }
