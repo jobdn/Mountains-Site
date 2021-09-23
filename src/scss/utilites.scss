@@ -68,24 +68,42 @@
     width: 220px;
     border-radius: 10px;
     @include flexbox(column, center, center);
+    transition: all 0.3s ease;
+
     margin: 0 auto;
     padding: 20px 20px 15px;
-    transition: all 0.3s ease;
+
+    @media screen and (max-width: $mdq3+px){
+        padding: 10px 15px;
+    }
+
     &__img {
         color: #4e4e4e;
+        @media screen and (max-width: $mdq3+px){
+            font-size: 0.8rem;
+        }
     }
     // .card__title
     &__title {
+        font-weight: bold;
         text-transform: uppercase;
+        color: #4e4e4e;
+
         margin: 20px 0;
         font-size: 1.4rem;
-        font-weight: bold;
-        color: #4e4e4e;
+        @media screen and (max-width: $mdq3+px){
+            font-size: 1.1rem;
+            margin: 15px 0 10px;
+        }
     }
     // .card__text
     &__text {
         line-height: 1.4;
         color: #5e5e5e;
+        @media screen and (max-width: $mdq3+px){
+            font-size: 0.8rem;
+            line-height: 1.2;
+        }
     }
     &:hover {
         transform: translate(0, -10px);
