@@ -65,21 +65,23 @@
 // CARD
 .card {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-    width: 220px;
     border-radius: 10px;
     @include flexbox(column, center, center);
     transition: all 0.3s ease;
+    width: 220px;
+    height: 350px;
 
     margin: 0 auto;
     padding: 20px 20px 15px;
 
-    @media screen and (max-width: $mdq3+px){
+    @media screen and (max-width: $mdq3+px) {
         padding: 10px 15px;
+        height: auto;
     }
-
+    //.card__img
     &__img {
         color: #4e4e4e;
-        @media screen and (max-width: $mdq3+px){
+        @media screen and (max-width: $mdq3+px) {
             font-size: 0.8rem;
         }
     }
@@ -91,22 +93,31 @@
 
         margin: 20px 0;
         font-size: 1.4rem;
-        @media screen and (max-width: $mdq3+px){
+        @media screen and (max-width: $mdq3+px) {
             font-size: 1.1rem;
             margin: 15px 0 10px;
+        }
+        // FOR ACCORDION
+        @media screen and (max-width: $mdq4+px) {
+            text-align: left;
+            width: 100%;
+            margin-left: 30px;
         }
     }
     // .card__text
     &__text {
         line-height: 1.4;
         color: #5e5e5e;
-        @media screen and (max-width: $mdq3+px){
+        @media screen and (max-width: $mdq3+px) {
             font-size: 0.8rem;
             line-height: 1.2;
         }
-    }
-    &:hover {
-        transform: translate(0, -10px);
+        // FOR ACCORDION
+        @media screen and (max-width: $mdq4+px) {
+            position: absolute;
+            top: -100%;
+            left: 0;
+        }
     }
 }
 
