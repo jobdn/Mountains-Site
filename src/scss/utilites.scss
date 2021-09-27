@@ -84,6 +84,7 @@
             font-size: 0.8rem;
         }
     }
+
     &-accordion {
         width: 100%;
         // .card-accordion__title
@@ -91,26 +92,45 @@
             font-weight: bold;
             text-transform: uppercase;
             color: #4e4e4e;
+            position: relative;
 
             margin: 20px 0;
             font-size: 1.4rem;
             @media screen and (max-width: $mdq3+px) {
                 font-size: 1.1rem;
-                margin: 15px 0 10px;
+                margin: 15px 0;
             }
             @media screen and (max-width: $mdq4+px) {
-                text-align: left;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 0 10px 0 0;
+                &::after {
+                    transition: all 1s ease;
+                    content: "\276F";
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transform: rotate(90deg);
+                }
+            }
+        }
+        // .card-accordion_active .card-accordion__title
+        &_active &__title {
+            &::after {
+                transform: rotate(-90deg);
             }
         }
         // .card-accordion_active .card-accordion__text
         &_active &__text {
-            transform: scale(1) ;
+            transform: scale(1);
             max-height: 100vh;
             transition: all 1.1s ease;
         }
         // .card-accordion__text
         &__text {
-            transition: all .7s ease;
+            transition: all 0.7s ease;
             line-height: 1.4;
             color: #5e5e5e;
             @media screen and (max-width: $mdq3+px) {
