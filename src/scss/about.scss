@@ -4,7 +4,7 @@
     padding: 100px 0 70px;
     background-color: #e9e9e9;
     @media screen and (max-width: $mdq2+px) {
-        padding: 20px 0 70px;
+        padding: 20px 0 50px;
     }
     // .about__subtitle
     &__subtitle {
@@ -33,5 +33,53 @@
     &__col {
         flex: 1 1 auto;
         margin: 30px 20px 10px;
+        @media screen and (max-width: $mdq4+px) {
+            margin: 20px 20px 10px;
+        }
+    }
+}
+
+/* ACCORDION */
+.about-accordion {
+    // .about-accordion__title
+    &__title {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #4e4e4e;
+        position: relative;
+
+        margin: 20px 0;
+        font-size: 1.4rem;
+        @media screen and (max-width: $mdq3+px) {
+            font-size: 1.1rem;
+            margin: 15px 0;
+        }
+        @media screen and (max-width: $mdq4+px) {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 10px 0 0;
+            &::after {
+                transition: all 0.9s ease;
+                content: "\276F";
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: rotate(90deg);
+            }
+        }
+    }
+    // .about-accordion
+    &__content {
+        @media screen and (min-width: $mdq4+px) {
+            max-height: none !important;
+        }
+    }
+    // .about-accordion[data-open="true"] .about-accordion__title
+    &[data-open="true"] &__title {
+        &::after {
+            transform: rotate(-90deg);
+        }
     }
 }

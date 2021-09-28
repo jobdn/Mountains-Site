@@ -84,89 +84,24 @@
             font-size: 0.8rem;
         }
     }
-
-    &-accordion {
-        width: 100%;
-        // .card-accordion__title
-        &__title {
-            font-weight: bold;
-            text-transform: uppercase;
-            color: #4e4e4e;
-            position: relative;
-
-            margin: 20px 0;
-            font-size: 1.4rem;
-            @media screen and (max-width: $mdq3+px) {
-                font-size: 1.1rem;
-                margin: 15px 0;
-            }
-            @media screen and (max-width: $mdq4+px) {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                padding: 0 10px 0 0;
-                &::after {
-                    transition: all 1s ease;
-                    content: "\276F";
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transform: rotate(90deg);
-                }
-            }
-        }
-        // .card-accordion_active .card-accordion__title
-        &_active &__title {
-            &::after {
-                transform: rotate(-90deg);
-            }
-        }
-        // .card-accordion_active .card-accordion__text
-        &_active &__text {
-            transform: scale(1);
-            max-height: 100vh;
-            transition: all 1.1s ease;
-        }
-        // .card-accordion__text
-        &__text {
-            transition: all 0.7s ease;
-            line-height: 1.4;
-            color: #5e5e5e;
-            @media screen and (max-width: $mdq3+px) {
-                font-size: 0.8rem;
-                line-height: 1.2;
-            }
-            @media screen and (max-width: $mdq4+px) {
-                position: relative;
-                transform: scale(0);
-                max-height: 0;
-            }
-        }
-    }
 }
 
-// POINTS ARROW
-.point {
-    position: relative;
-    &::after {
-        content: "";
-        position: absolute;
-        border: 10px solid transparent;
+/* ACCORDION */
+.accordion {
+    // .accordion__content
+    &__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .8s ease;
     }
-    &_right-top:after {
-        top: 50px;
-        right: 0;
-        border-right: 10px solid #fff;
-    }
-    &_left-top::after {
-        top: 50px;
-        left: 0;
-        border-left: 10px solid #fff;
-    }
-    &_left-bottom:after {
-        left: 50px;
-        bottom: 0;
-        border-bottom: 10px solid #fff;
+    // .accordion__text
+    &__text {
+        transition: all .8s ease;
+        line-height: 1.4;
+        color: #5e5e5e;
+        @media screen and (max-width: $mdq3+px) {
+            font-size: 0.8rem;
+            line-height: 1.2;
+        }
     }
 }
