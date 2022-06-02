@@ -1,5 +1,5 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css);
-@import '~normalize-scss';
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+@import "~normalize-scss";
 $minwidth: 320px;
 $mw: 1100;
 $mdq1: $mw + 15;
@@ -8,29 +8,30 @@ $mdq3: 768;
 $mdq4: 546;
 
 .container {
-    max-width: $mw + px;
-    margin: 0 auto;
-    height: 100%;
-    @media screen and (max-width: $mdq1 + px) {
-        max-width: 970px;
-    }
-    @media screen and (max-width: $mdq2 + px) {
-        max-width: 750px;
-    }
-    @media screen and (max-width: $mdq3 + px) {
-        max-width: none;
-        margin: 0 10px;
-    }
+  max-width: $mw + px;
+  margin: 0 auto;
+  height: 100%;
+  @media screen and (max-width: $mdq1 + px) {
+    max-width: 970px;
+  }
+  @media screen and (max-width: $mdq2 + px) {
+    max-width: 750px;
+  }
+  @media screen and (max-width: $mdq3 + px) {
+    max-width: none;
+    margin: 0 10px;
+  }
 }
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@import 'showcase';
+@import "showcase";
 @import "menu";
-@import 'about';
-@import 'journal';
-@import '../css/simpleSlider.css';
+@import "about";
+@import "journal";
+@import "../css/simpleSlider.css";
+@import "./footer.scss";

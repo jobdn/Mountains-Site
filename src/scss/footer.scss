@@ -1,0 +1,20 @@
+@import "./utilites.scss";
+.footer {
+  height: 100px;
+  background-color: #e9e9e9;
+  &__content {
+    @include flexbox(row, center, center);
+    color: #000;
+  }
+  i {
+    color: red;
+  }
+  &__link {
+    color: inherit;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: $mdq3 + px) {
+    height: 70px;
+  }
+}
