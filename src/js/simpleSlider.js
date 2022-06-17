@@ -5,10 +5,10 @@
  */
 
 (function () {
-  if (typeof window.CustomEvent === 'function') return false;
+  if (typeof window.CustomEvent === "function") return false;
   function CustomEvent(event, params) {
     params = params || { bubbles: false, cancelable: false, detail: null };
-    var e = document.createEvent('CustomEvent');
+    var e = document.createEvent("CustomEvent");
     e.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
     return e;
   }
@@ -16,22 +16,22 @@
 })();
 
 // базовые классы и селекторы
-var WRAPPER_SELECTOR = '.slider__wrapper';
-var ITEMS_SELECTOR = '.slider__items';
-var ITEM_SELECTOR = '.slider__item';
-var ITEM_CLASS_ACTIVE = 'slider__item_active';
-var CONTROL_SELECTOR = '.slider__control';
-var CONTROL_CLASS_SHOW = 'slider__control_show';
+var WRAPPER_SELECTOR = ".slider__wrapper";
+var ITEMS_SELECTOR = ".slider__items";
+var ITEM_SELECTOR = ".slider__item";
+var ITEM_CLASS_ACTIVE = "slider__item_active";
+var CONTROL_SELECTOR = ".slider__control";
+var CONTROL_CLASS_SHOW = "slider__control_show";
 // индикаторы
-var INDICATOR_WRAPPER_ELEMENT = 'ol';
-var INDICATOR_WRAPPER_CLASS = 'slider__indicators';
-var INDICATOR_ITEM_ELEMENT = 'li';
-var INDICATOR_ITEM_CLASS = 'slider__indicator';
-var INDICATOR_ITEM_CLASS_ACTIVE = 'slider__indicator_active';
+var INDICATOR_WRAPPER_ELEMENT = "ol";
+var INDICATOR_WRAPPER_CLASS = "slider__indicators";
+var INDICATOR_ITEM_ELEMENT = "li";
+var INDICATOR_ITEM_CLASS = "slider__indicator";
+var INDICATOR_ITEM_CLASS_ACTIVE = "slider__indicator_active";
 // порог для переключения слайда (40%)
 var SWIPE_THRESHOLD = 20;
 // класс для отключения transition
-var TRANSITION_NONE = 'transition-none';
+var TRANSITION_NONE = "transition-none";
 
 function SimpleAdaptiveSlider(selector, config) {
   // .slider
@@ -52,7 +52,7 @@ function SimpleAdaptiveSlider(selector, config) {
   this._minTranslate = 0;
   this._maxTranslate = 0;
   // направление смены слайдов (по умолчанию)
-  this._direction = 'next';
+  this._direction = "next";
   // флаг, который показывает, что идёт процесс уравновешивания слайдов
   this._balancingItemsFlag = false;
   // текущее значение трансформации
@@ -87,7 +87,7 @@ function SimpleAdaptiveSlider(selector, config) {
     var translate = -this._$itemList.length * 100;
     this._$itemList[count].dataset.order = -1;
     this._$itemList[count].dataset.translate = -this._$itemList.length * 100;
-    var transformValue = 'translateX('.concat(translate, '%)');
+    var transformValue = "translateX(".concat(translate, "%)");
     this._$itemList[count].style.transform = transformValue;
   }
   // добавляем индикаторы к слайдеру
@@ -119,7 +119,7 @@ SimpleAdaptiveSlider.prototype._setActiveClass = function () {
     }
   }
   // indicators
-  var $indicators = this._$root.querySelectorAll('.' + INDICATOR_ITEM_CLASS);
+  var $indicators = this._$root.querySelectorAll("." + INDICATOR_ITEM_CLASS);
   if ($indicators.length) {
     for (i = 0, length = $indicators.length; i < length; i++) {
       $item = $indicators[i];
@@ -156,24 +156,24 @@ SimpleAdaptiveSlider.prototype._setActiveClass = function () {
 
 // смена слайдов
 SimpleAdaptiveSlider.prototype._move = function () {
-  if (this._direction === 'none') {
+  if (this._direction === "none") {
     this._$items.classList.remove(TRANSITION_NONE);
-    this._$items.style.transform = 'translateX('.concat(this._transform, '%)');
+    this._$items.style.transform = "translateX(".concat(this._transform, "%)");
     return;
   }
   if (!this._config.loop) {
     var condition = this._currentIndex + 1 >= this._$itemList.length;
-    if (condition && this._direction === 'next') {
-      this._autoplay('stop');
+    if (condition && this._direction === "next") {
+      this._autoplay("stop");
       return;
     }
-    if (this._currentIndex <= 0 && this._direction === 'prev') {
+    if (this._currentIndex <= 0 && this._direction === "prev") {
       return;
     }
   }
-  var step = this._direction === 'next' ? -100 : 100;
+  var step = this._direction === "next" ? -100 : 100;
   var transform = this._transform + step;
-  if (this._direction === 'next') {
+  if (this._direction === "next") {
     if (++this._currentIndex > this._$itemList.length - 1) {
       this._currentIndex -= this._$itemList.length;
     }
@@ -183,14 +183,14 @@ SimpleAdaptiveSlider.prototype._move = function () {
     }
   }
   this._transform = transform;
-  this._$items.style.transform = 'translateX('.concat(transform, '%)');
+  this._$items.style.transform = "translateX(".concat(transform, "%)");
   this._setActiveClass();
 };
 
 // функция для перемещения к слайду по индексу
 SimpleAdaptiveSlider.prototype._moveTo = function (index) {
   var currentIndex = this._currentIndex;
-  this._direction = index > currentIndex ? 'next' : 'prev';
+  this._direction = index > currentIndex ? "next" : "prev";
   for (var i = 0; i < Math.abs(index - currentIndex); i++) {
     this._move();
   }
@@ -201,16 +201,17 @@ SimpleAdaptiveSlider.prototype._autoplay = function (action) {
   if (!this._config.autoplay) {
     return;
   }
-  if (action === 'stop') {
+  if (action === "stop") {
     clearInterval(this._intervalId);
     this._intervalId = null;
     return;
   }
   if (this._intervalId === null) {
-    this._intervalId = setInterval(function () {
-      this._direction = 'next';
-      this._move();
-    }.bind(this),
+    this._intervalId = setInterval(
+      function () {
+        this._direction = "next";
+        this._move();
+      }.bind(this),
       this._config.interval
     );
   }
@@ -218,7 +219,7 @@ SimpleAdaptiveSlider.prototype._autoplay = function (action) {
 
 // добавление индикаторов
 SimpleAdaptiveSlider.prototype._addIndicators = function () {
-  if (this._$root.querySelector('.' + INDICATOR_WRAPPER_CLASS)) {
+  if (this._$root.querySelector("." + INDICATOR_WRAPPER_CLASS)) {
     return;
   }
   var $wrapper = document.createElement(INDICATOR_WRAPPER_ELEMENT);
@@ -267,7 +268,7 @@ SimpleAdaptiveSlider.prototype._balancingItems = function () {
   var count = this._$itemList.length;
   var translate;
   var clientRect;
-  if (this._direction === 'next') {
+  if (this._direction === "next") {
     var wrapperLeft = wrapperRect.left;
     var $min = this._$itemWithMinOrder;
     translate = this._minTranslate;
@@ -276,10 +277,10 @@ SimpleAdaptiveSlider.prototype._balancingItems = function () {
       $min.dataset.order = this._minOrder + count;
       translate += count * 100;
       $min.dataset.translate = translate;
-      $min.style.transform = 'translateX('.concat(translate, '%)');
+      $min.style.transform = "translateX(".concat(translate, "%)");
       this._refreshExtremeValues();
     }
-  } else if (this._direction === 'prev') {
+  } else if (this._direction === "prev") {
     var wrapperRight = wrapperRect.right;
     var $max = this._$itemWithMaxOrder;
     translate = this._maxTranslate;
@@ -288,7 +289,7 @@ SimpleAdaptiveSlider.prototype._balancingItems = function () {
       $max.dataset.order = this._maxOrder - count;
       translate -= count * 100;
       $max.dataset.translate = translate;
-      $max.style.transform = 'translateX('.concat(translate, '%)');
+      $max.style.transform = "translateX(".concat(translate, "%)");
       this._refreshExtremeValues();
     }
   }
@@ -300,8 +301,8 @@ SimpleAdaptiveSlider.prototype._addEventListener = function () {
   var $items = this._$items;
   function onClick(e) {
     var $target = e.target;
-    this._autoplay('stop');
-    if ($target.classList.contains('slider__control')) {
+    this._autoplay("stop");
+    if ($target.classList.contains("slider__control")) {
       e.preventDefault();
       this._direction = $target.dataset.slide;
       this._move();
@@ -320,11 +321,12 @@ SimpleAdaptiveSlider.prototype._addEventListener = function () {
   }
   function onTransitionEnd() {
     this._balancingItemsFlag = false;
-    this._$root.dispatchEvent(new CustomEvent('slider.transition.end',
-      { bubbles: true }));
+    this._$root.dispatchEvent(
+      new CustomEvent("slider.transition.end", { bubbles: true })
+    );
   }
   function onMouseEnter() {
-    this._autoplay('stop');
+    this._autoplay("stop");
   }
   function onMouseLeave() {
     if (this._config.loop) {
@@ -332,8 +334,8 @@ SimpleAdaptiveSlider.prototype._addEventListener = function () {
     }
   }
   function onSwipeStart(e) {
-    this._autoplay('stop');
-    var event = e.type.search('touch') === 0 ? e.touches[0] : e;
+    this._autoplay("stop");
+    var event = e.type.search("touch") === 0 ? e.touches[0] : e;
     this._swipeStartPosX = event.clientX;
     this._swipeStartPosY = event.clientY;
     this._hasSwipeState = true;
@@ -343,7 +345,7 @@ SimpleAdaptiveSlider.prototype._addEventListener = function () {
     if (!this._hasSwipeState) {
       return;
     }
-    var event = e.type.search('touch') === 0 ? e.touches[0] : e;
+    var event = e.type.search("touch") === 0 ? e.touches[0] : e;
     var diffPosX = this._swipeStartPosX - event.clientX;
     var diffPosY = this._swipeStartPosY - event.clientY;
     if (!this._hasSwiping) {
@@ -365,13 +367,13 @@ SimpleAdaptiveSlider.prototype._addEventListener = function () {
     var value = (diffPosX / this._$wrapper.getBoundingClientRect().width) * 100;
     var translateX = this._transform - value;
     this._$items.classList.add(TRANSITION_NONE);
-    this._$items.style.transform = 'translateX('.concat(translateX, '%)');
+    this._$items.style.transform = "translateX(".concat(translateX, "%)");
   }
   function onSwipeEnd(e) {
     if (!this._hasSwipeState) {
       return;
     }
-    var event = e.type.search('touch') === 0 ? e.changedTouches[0] : e;
+    var event = e.type.search("touch") === 0 ? e.changedTouches[0] : e;
     var diffPosX = this._swipeStartPosX - event.clientX;
     if (!this._config.loop) {
       if (this._currentIndex + 1 >= this._$itemList.length && diffPosX >= 0) {
@@ -384,13 +386,13 @@ SimpleAdaptiveSlider.prototype._addEventListener = function () {
     var value = (diffPosX / this._$wrapper.getBoundingClientRect().width) * 100;
     this._$items.classList.remove(TRANSITION_NONE);
     if (value > SWIPE_THRESHOLD) {
-      this._direction = 'next';
+      this._direction = "next";
       this._move();
     } else if (value < -SWIPE_THRESHOLD) {
-      this._direction = 'prev';
+      this._direction = "prev";
       this._move();
     } else {
-      this._direction = 'none';
+      this._direction = "none";
       this._move();
     }
     this._hasSwipeState = false;
@@ -402,71 +404,77 @@ SimpleAdaptiveSlider.prototype._addEventListener = function () {
     e.preventDefault();
   }
   function onVisibilityChange() {
-    if (document.visibilityState === 'hidden') {
-      this._autoplay('stop');
-    } else if (document.visibilityState === 'visible') {
+    if (document.visibilityState === "hidden") {
+      this._autoplay("stop");
+    } else if (document.visibilityState === "visible") {
       if (this._config.loop) {
         this._autoplay();
       }
     }
   }
   // click
-  this._$root.addEventListener('click', onClick.bind(this));
+  this._$root.addEventListener("click", onClick.bind(this));
   // transitionstart and transitionend
   if (this._config.loop) {
-    $items.addEventListener('transitionstart', onTransitionStart.bind(this));
-    $items.addEventListener('transitionend', onTransitionEnd.bind(this));
+    $items.addEventListener("transitionstart", onTransitionStart.bind(this));
+    $items.addEventListener("transitionend", onTransitionEnd.bind(this));
   }
   // mouseenter and mouseleave
   if (this._config.autoplay) {
-    this._$root.addEventListener('mouseenter', onMouseEnter.bind(this));
-    this._$root.addEventListener('mouseleave', onMouseLeave.bind(this));
+    this._$root.addEventListener("mouseenter", onMouseEnter.bind(this));
+    this._$root.addEventListener("mouseleave", onMouseLeave.bind(this));
   }
   // swipe
   if (this._config.swipe) {
     var supportsPassive = false;
     try {
-      var opts = Object.defineProperty({}, 'passive', {
+      var opts = Object.defineProperty({}, "passive", {
         get: function () {
           supportsPassive = true;
         },
       });
-      window.addEventListener('testPassiveListener', null, opts);
-    } catch (err) { }
-    this._$root.addEventListener('touchstart', onSwipeStart.bind(this),
-      supportsPassive ? { passive: false } : false);
-    this._$root.addEventListener('touchmove', onSwipeMove.bind(this),
-      supportsPassive ? { passive: false } : false);
-    this._$root.addEventListener('mousedown', onSwipeStart.bind(this));
-    this._$root.addEventListener('mousemove', onSwipeMove.bind(this));
-    document.addEventListener('touchend', onSwipeEnd.bind(this));
-    document.addEventListener('mouseup', onSwipeEnd.bind(this));
+      window.addEventListener("testPassiveListener", null, opts);
+    } catch (err) {}
+    this._$root.addEventListener(
+      "touchstart",
+      onSwipeStart.bind(this),
+      supportsPassive ? { passive: false } : false
+    );
+    this._$root.addEventListener(
+      "touchmove",
+      onSwipeMove.bind(this),
+      supportsPassive ? { passive: false } : false
+    );
+    this._$root.addEventListener("mousedown", onSwipeStart.bind(this));
+    this._$root.addEventListener("mousemove", onSwipeMove.bind(this));
+    document.addEventListener("touchend", onSwipeEnd.bind(this));
+    document.addEventListener("mouseup", onSwipeEnd.bind(this));
   }
-  this._$root.addEventListener('dragstart', onDragStart.bind(this));
+  this._$root.addEventListener("dragstart", onDragStart.bind(this));
   // при изменении активности вкладки
-  document.addEventListener('visibilitychange', onVisibilityChange.bind(this));
+  document.addEventListener("visibilitychange", onVisibilityChange.bind(this));
 };
 
 // перейти к следующему слайду
 SimpleAdaptiveSlider.prototype.next = function () {
-  this._direction = 'next';
+  this._direction = "next";
   this._move();
 };
 
 // перейти к предыдущему слайду
 SimpleAdaptiveSlider.prototype.prev = function () {
-  this._direction = 'prev';
+  this._direction = "prev";
   this._move();
 };
 
 // управление автоматической сменой слайдов
 SimpleAdaptiveSlider.prototype.autoplay = function (action) {
-  this._autoplay('stop');
+  this._autoplay("stop");
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // инициализация слайдера
-  new SimpleAdaptiveSlider('.journal__slider', {
+  new SimpleAdaptiveSlider(".journal__slider", {
     loop: true,
     autoplay: true,
     interval: 5000,
